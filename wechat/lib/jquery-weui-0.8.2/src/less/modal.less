@@ -1,0 +1,99 @@
+.weui-dialog{
+  max-width: none;
+  width: 85%;
+}
+.weui-dialog, .weui-toast {
+  transition-duration: .2s;
+  opacity: 0;
+  transform: scale(.9);
+  visibility: hidden;
+  margin: 0;
+  left: 7.5%;
+  top: 30%;
+  z-index: 100;
+
+  .weui-btn_dialog + .weui-btn_dialog {
+    position: relative;
+    &:after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      border-left: 1px solid #D5D5D6;
+      color: #D5D5D6;
+      transform-origin: 0 0;
+      transform: scaleX(0.5);
+    }
+  }
+
+  &.weui-dialog-visible, &.weui-toast-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .weui-dialog {
+    left: 32.5%;
+  }
+}
+
+.weui-toast {
+  left: 50%;
+  top: 35%;
+  margin-left: -3.8em;
+}
+
+.weui-icon_toast {
+  font-size: 55px;
+  color: #fff;
+}
+.weui-icon-warn {
+  color: #F76260;
+}
+.weui-icon_toast.weui-icon-warn:before {
+  color: #F76260;
+}
+.weui-toast-text {
+  min-height: 1em;
+  width: auto;
+  height: 45px;
+  border-radius: 25px;
+  margin-left: 0;
+  transform: scale(0.9) translate3d(-50%, 0, 0);
+  transform-origin: left;
+
+  &.weui-toast-visible {
+    transform: scale(1) translate3d(-50%, 0, 0);
+  }
+
+  .weui-icon_toast {
+    display: none;
+  }
+
+  .weui-toast__content {
+    margin: 10px 15px;
+  }
+}
+
+.weui-mask {
+  opacity: 0;
+  transition-duration: .3s;
+  visibility: hidden;
+  &.weui-mask-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.weui-prompt-input {
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 2em;
+  width: 80%;
+  margin-top: 10px;
+}

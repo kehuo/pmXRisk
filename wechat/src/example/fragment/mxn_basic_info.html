@@ -1,0 +1,139 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">请填选您的基本资料</h1>
+    </div>
+    <div class="page__bd" style="margin-bottom:60px">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入"/>
+                </div>
+            </div>
+            <div class="weui-cells_radio">
+                <label class="weui-cell weui-check__label" for="x11">
+                    <div class="weui-cell__bd">
+                        <p>男</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" class="weui-check" name="radio1" id="x11">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+                <label class="weui-cell weui-check__label" for="x12">
+                    <div class="weui-cell__bd">
+                        <p>女</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" name="radio1" class="weui-check" id="x12">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+            </div>
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__hd"><label class="weui-label">出生年月</label></div>
+                <div class="weui-cell__bd">
+                    <input id="gardenBirthday" class="weui-input" type="text" placeholder="请输入"/>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cells_half">
+                <div class="weui-cell weui-cell_select">
+                    <div class="weui-cell__hd"><label class="weui-label">身高</label></div>
+                    <div class="weui-cell__bd">
+                        <input id="gardenHeight" class="weui-input" type="text" placeholder="请输入"/>
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </div>
+                <div class="weui-cell weui-cell_select">
+                    <div class="weui-cell__hd"><label class="weui-label">体重</label></div>
+                    <div class="weui-cell__bd">
+                        <input id="gardenWeight" class="weui-input" type="text" placeholder="请输入"/>
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入"/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <label class="weui-label">居住地址</label>
+                    <textarea class="weui-textarea" placeholder="请输入" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-msg__extra-area">
+        <div class="weui-footer-btn">
+            <a href="javascript:;" class="weui-btn weui-btn_plain-primary">下一步</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var store = {};
+
+        var heights = [];
+        var weights = [];
+        for (var i=20; i<300; i++) {
+            heights.push(''+i);
+        }
+        weights = heights;
+
+        $('input[type="radio"]').on('change', function(){
+            var label = $(this).parents('.weui-check__label');
+            label.addClass('weui-check__label_checked');
+            label.siblings().removeClass('weui-check__label_checked');
+        });
+        $("#gardenBirthday").calendar({
+            value: ['1980-01-01'],
+            dateFormat: 'yyyy年mm月dd日',  // 自定义格式的时候，不能通过 input 的value属性赋值 '2016年12月12日' 来定义初始值，这样会导致无法解析初始值而报错。只能通过js中设置 value 的形式来赋值，并且需要按标准形式赋值（yyyy-mm-dd 或者时间戳)
+            onChange: function(p, v, dv){
+                //console.log(p, v, dv);
+                store.dob = moment(dv[0]).format('YYYY-MM-DD');
+            }
+    });
+        $('#gardenHeight').picker({
+            title: '请选择身高(单位 cm)',
+            cols: [{
+                textAlign: 'center',
+                values: heights,
+                displayValues: heights,
+            }],
+            value: ['170'],
+            formatValue: function(p, v, dv) {
+                return dv;
+            },
+            onChange: function(p, v, dv) {
+                //console.log(p, v, dv);
+            },
+            onClose: function(p, v, d) {
+                //console.log('close', p, v, d);
+                globalStore.height = p.cols[0].value;
+            }
+        });
+        $('#gardenWeight').picker({
+            title: '请选择体重(单位 kg)',
+            cols: [{
+                textAlign: 'center',
+                values: weights,
+                displayValues: weights,
+            }],
+            value: ['50'],
+            formatValue: function(p, v, dv) {
+                return dv;
+            },
+            onChange: function(p, v, dv) {
+                //console.log(p, v, dv);
+            },
+            onClose: function(p, v, d) {
+                //console.log('close', p, v, d);
+                store.weight = p.cols[0].value;
+            }
+        });
+    });
+</script>

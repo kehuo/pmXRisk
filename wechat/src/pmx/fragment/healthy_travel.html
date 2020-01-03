@@ -1,0 +1,95 @@
+<div class="page">
+    <div class="page__body">
+        <div class="page_body_1">
+            <div class="healthy_travel_title_frame">
+                <div class="healthy_travel_address" id="healthyTravelAddress">
+                    <span class="healthy_travel_address_content">{{ address.city }}</span><i class="pmicon pmicon-down healthy_travel_address_content"></i>
+                </div>
+                <div class="healthy_travel_title">哮喘儿童-出行风险提醒</div>
+            </div>
+            <div class="healthy_travel_weather_frame">
+                <div class="healthy_travel_weather_row">
+                    <div class="healthy_travel_weather_content">
+                        <span class="healthy_travel_ml4">今天</span>
+                        <span class="healthy_travel_ml6" id="healthy_travel_today">{{ weatherInfo.today }}</span>
+                        <span class="healthy_travel_ml8" id="healthy_travel_week">{{ weatherInfo.dayOfWeek }}</span>
+                    </div>
+                    <div class="healthy_travel_weather_update">{{ weatherInfo.updatedAgo }}</div>
+                </div>
+                <div class="healthy_travel_weather_row">
+                    <div class="healthy_travel_weather_img" id="healthy_travel_weather_img">
+                        <i class="{{ 'pmicon pmicon-'  + weatherInfo.weatherIcon }}"></i>
+                    </div>
+                    <div class="healthy_travel_weather_cl">
+                        <div id="healthy_travel_weather">{{ weatherInfo.weather }}</div>
+                        <div id="healthy_travel_temperature_range">{{ weatherInfo.temperatureRange}}</div>
+                    </div>
+                    <div class="healthy_travel_weather_cr">
+                        <div class="healthy_travel_weather_row">
+                            <div class="healthy_travel_weather_col12">
+                                <span>气温：</span><span id="healthy_travel_temperature">{{ weatherInfo.temperatureAverage }}</span>
+                            </div>
+                            <div class="healthy_travel_weather_col12">
+                                <span>湿度：</span><span id="healthy_travel_humidity">{{ weatherInfo.humidity }}</span>
+                            </div>
+                            <!-- <div class="healthy_travel_label">气温</div><div id="healthy_travel_temperature" class="healthy_travel_value">{{ weatherInfo.temperatureAverage }}</div>
+                            <div class="healthy_travel_label">湿度</div><div id="healthy_travel_humidity" class="healthy_travel_value">{{ weatherInfo.humidity }}</div> -->
+                        </div>
+                        <div class="healthy_travel_weather_row">
+                            <div class="healthy_travel_weather_col12">
+                                <span>PM2.5：</span><span id="healthy_travel_pm25">{{ pmInfo.avg.pm25 }}</span>
+                            </div>
+                            <div class="healthy_travel_weather_col12">
+                                <span>PM10：</span><span id="healthy_travel_pm10">{{ pmInfo.avg.pm10 }}</span>
+                            </div>
+                            <!-- <div class="healthy_travel_label">PM2.5</div><div id="healthy_travel_pm25" class="healthy_travel_value">{{ pmInfo.avg.pm25 }}</div>
+                            <div class="healthy_travel_label">PM10</div><div id="healthy_travel_pm10" class="healthy_travel_value">{{ pmInfo.avg.pm10 }}</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="healthy_travel_notice_frame">
+                <object class="healthy_travel_notice_img" data="/pmx/images/person.svg" type="image/svg+xml"></object>
+                <div class="healthy_travel_notice_row healthy_travel_mt28">
+                    <div class="healthy_travel_fr">
+                        <div class="healthy_travel_label_fever">是否发热</div><input class="weui-switch" type="checkbox" id="healthy_travel_is_fever" {{ isFever ? 'checked' : '' }}>
+                    </div>
+                </div>
+                <div class="healthy_travel_notice_row healthy_travel_notice_container">
+                    <div class="healthy_travel_notice_rate_container">
+                        <div class="healthy_travel_notice_risk">
+                            <span>哮喘发作风险系数</span><span id="healthy_travel_notice_per" class="healthy_travel_ml4">{{ riskInfo.pm25ProbContent }}</span>
+                        </div>
+                        <div id="healthy_travel_notice_stars"></div>
+                    </div>
+                </div>
+                <div class="healthy_travel_notice_row healthy_travel_mt12">
+                    <div class="healthy_travel_notice_content" id="healthy_travel_notice_content">
+                        {{ riskInfo.pm25Comment }}
+                    </div>
+                </div>
+            </div>
+            <div class="healthy_travel_pm_title_frame">
+                整点空气质量
+            </div>
+        </div>
+        <div class="page_body_2">
+            <div class="healthy_travel_pm_frame">
+                <div id="healthy_travel_pm_line_chart"></div>
+            </div>
+        </div>
+        <div class="page_footer">
+            <div class="healthy_travel_provider_frame">
+                <div class="healthy_travel_provider">
+                    <span class="healthy_travel_provider_content">天气数据：天气APT提供&nbsp;&nbsp;</span>
+                    <span class="healthy_travel_provider_content">PM数据：The World Air Quality Project 提供</span>
+
+                </div>
+                <div class="healthy_travel_provider">
+                    <span class="healthy_travel_provider_content">风险预测模型：厦门大学附属第一医院提供&nbsp;&nbsp;</span>
+                    <span class="healthy_travel_provider_content">技术支持：翼方健数提供</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

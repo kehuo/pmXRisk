@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.temp/
+.vscode/
+.DS_Store
+/src/.DS_Store
+/src/pages/.umi/
+/src/pages/.DS_Store

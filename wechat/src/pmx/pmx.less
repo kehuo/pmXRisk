@@ -1,0 +1,1410 @@
+html, body {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+body{
+  font-family: -apple-system-font, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+ul{
+  list-style: none;
+}
+
+body, .page {
+  background-color: #F8F8F8;
+}
+
+.link{
+  color: #FF8A00;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.page {
+  //background: -webkit-linear-gradient(#21a7e8, #1477a5); /* Safari 5.1 - 6.0 */
+  //background: -o-linear-gradient(#21a7e8, #1477a5); /* Opera 11.1 - 12.0 */
+  //background: -moz-linear-gradient(#21a7e8, #1477a5); /* Firefox 3.6 - 15 */
+  //background: linear-gradient(#21a7e8, #1477a5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  z-index: 1; // fix 滑动几次后可滚动区域会卡住的问题
+  &.js_show{
+    opacity: 1;
+  }
+}
+
+.page__body{
+  width: 100%;
+  min-height: 100%;
+  float: left;
+  //background: url("./images/bg_tu.png") no-repeat;
+  // background: linear-gradient(#59c0ff,#3a7abf);
+  background-size: 100% auto;
+}
+
+.page__title{
+  padding: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+}
+
+.page__index{
+  width: 80px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #fff;
+  background: #999;
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+.page_body_1 {
+  background: linear-gradient(#59c0ff,#3a7abf);
+}
+
+.page_body_2 {
+  background: #3a7abf;
+}
+
+.page_footer {
+  background: linear-gradient(#3a7abf,#3a7ac0);
+}
+
+.page__hd {
+}
+
+.page__bd{
+  img{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.page__bd_spacing {
+  padding: 0 15px;
+}
+
+.page__ft{
+  padding-top: 40px;
+  padding-bottom: 10px;
+  text-align: center;
+  img{
+    height: 19px;
+  }
+  &.j_bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+// .weui-cells{
+//   background: none;
+//   margin-top: 0;
+//   &:before, &:after{
+//     display: none;
+//   }
+//   .weui-cell__hd{
+//     margin-right: 5px;
+//   }
+// }
+// div.weui-cell{
+//   background-color: #fff;
+//   margin: 10px;
+//   margin-top: 0;
+//   padding: 15px;
+//   @media only screen
+//   and (min-device-width: 320px)
+//   and (max-device-width: 568px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+//     padding: 10px;
+//   }
+//   @media only screen
+//   and (min-device-width: 375px)
+//   and (max-device-width: 667px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+//     padding: 15px;
+//   }
+//   @media only screen
+//   and (min-device-width: 410px)
+//   and (max-device-width: 730px)
+//   and (-webkit-min-device-pixel-ratio: 3) {
+//     padding: 15px;
+//   }
+//   min-height: 25px;
+//   & div{
+//     z-index: 10;
+//   }
+//   &:before{
+//     content: " ";
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     width: 200%;
+//     height: 200%;
+//     border: 1px solid #d9d9d9;
+//     -webkit-transform-origin: 0 0;
+//     transform-origin: 0 0;
+//     -webkit-transform: scale(.5,.5);
+//     transform: scale(.5,.5);
+//     z-index: 1;
+//   }
+//   &:first-child:before{
+//     display: block;
+//   }
+// }
+// label.weui-cell{
+//   &:before{
+//     left: 0;
+//   }
+// }
+// .weui-cells__header{
+//   display: flex;
+//   margin: 10px;
+//   .weui-cells__doctor{
+//     background: url("./images/doctor.png") no-repeat;
+//     background-size: 86px 120px;
+//     width: 86px;
+//     height: 120px;
+//     float: left;
+//   }
+//   .weui-cells__doctor_msg{
+//     float: right;
+//     max-width: 70%;
+//     .weui-cells__doctor_msg_arrow{
+//       background: url("./images/dialog.png") no-repeat;
+//       background-size: 21px 16px;
+//       width: 21px;
+//       height: 16px;
+//       margin: 40px -4px 0 0;
+//       float: left;
+//     }
+//     .weui-cells__title{
+//       color: #333;
+//       font-size: 15px;
+//       font-weight: bold;
+//       padding: 15px;
+//       margin: 31px 0 0 17px;
+//       border-radius: 15px;
+//       background: #fff;
+//     }
+//   }
+// }
+// .weui-label{
+//   width: 70px;
+//   font-size: 18px;
+//   color: #333;
+// }
+// .weui-input{
+//   font-size: 18px;
+//   color: #333;
+// }
+// .weui-textarea{
+//   font-size: 18px;
+//   color: #333;
+// }
+// .weui-cell__bd{
+//   .weui-label{
+//     margin-bottom: 10px;
+//   }
+// }
+// .weui-cells_radio, .weui-cells_checkbox{
+//   margin: 15px;
+//   @media only screen
+//   and (min-device-width: 320px)
+//   and (max-device-width: 568px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+//     margin: 10px;
+//   }
+//   @media only screen
+//   and (min-device-width: 375px)
+//   and (max-device-width: 667px)
+//   and (-webkit-min-device-pixel-ratio: 2) {
+//     margin: 15px;
+//   }
+//   @media only screen
+//   and (min-device-width: 410px)
+//   and (max-device-width: 730px)
+//   and (-webkit-min-device-pixel-ratio: 3) {
+//     margin: 15px;
+//   }
+//   margin-top: 0;
+//   padding: 0;
+//   .weui-cell{
+//     padding: 0 15px;
+//     min-height: 55px;
+//     @media only screen
+//     and (min-device-width: 320px)
+//     and (max-device-width: 568px)
+//     and (-webkit-min-device-pixel-ratio: 2) {
+//       padding: 0 10px;
+//       min-height: 45px;
+//     }
+//     @media only screen
+//     and (min-device-width: 375px)
+//     and (max-device-width: 667px)
+//     and (-webkit-min-device-pixel-ratio: 2) {
+//       padding: 0 15px;
+//       min-height: 55px;
+//     }
+//     @media only screen
+//     and (min-device-width: 410px)
+//     and (max-device-width: 730px)
+//     and (-webkit-min-device-pixel-ratio: 3) {
+//       padding: 0 15px;
+//       min-height: 55px;
+//     }
+
+//   }
+//   .weui-check{
+//     &:checked {
+//       & + .weui-icon-checked {
+//         &:before {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+//   .weui-check__label{
+//     font-size: 18px;
+//     color: #333;
+//   }
+// }
+// .weui-cells_radio{
+//   .weui-icon-checked{
+//     background: url("./images/radio_off.png") no-repeat;
+//     background-size: 17px 17px;
+//     width: 17px;
+//     height: 17px;
+//     margin-top: -4px;
+//     &:before{
+//       display: none;
+//     }
+//   }
+//   .weui-check__label_checked{
+//     .weui-icon-checked{
+//       background: url("./images/radio_on.png") no-repeat;
+//       background-size: 17px 17px;
+//       width: 17px;
+//       height: 17px;
+//       &:before{
+//         display: none;
+//       }
+//     }
+//   }
+// }
+// .weui-cells_checkbox{
+//   .weui-icon-checked{
+//     background: url("./images/checkbox_off.png") no-repeat;
+//     background-size: 17px 17px;
+//     width: 17px;
+//     height: 17px;
+//     margin-top: -4px;
+//     &:before{
+//       display: none;
+//     }
+//   }
+//   .weui-check__label_checked{
+//     .weui-icon-checked{
+//       background: url("./images/checkbox_on.png") no-repeat;
+//       background-size: 20px 19px;
+//       width: 20px;
+//       height: 19px;
+//       margin-right: -3px;
+//       &:before{
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// .weui-cells_file {
+//   padding: 10px 15px 0;
+//   .survey-selectFile {
+//     opacity: 0;
+//     z-index: 10;
+//   }
+//   .survey-selectFileTips {
+//     display: none;
+//     color: #fff;
+//     opacity: 0.7;
+//     font-size: 14px;
+//     margin-top: 10px;
+//   }
+//   input {
+//     width: 93%;
+//     height: 50px;
+//     position: absolute;
+//   }
+//   a {
+//     span {
+//       color: #999;
+//     }
+//   }
+// }
+
+// .weui-cells_form{
+//   .weui-label{
+//     font-size: 16px;
+//     color: #333;
+//   }
+//   .weui-input{
+//     font-size: 16px;
+//     color: #333;
+//   }
+//   .weui-textarea{
+//     font-size: 16px;
+//     color: #333;
+//   }
+//   .weui-cells_radio{
+//     display: flex;
+//     margin: 15px;
+//     margin-top: 0;
+//     background: none;
+//     .weui-cell{
+//       width: 50%;
+//       min-height: inherit;
+//       margin-right: 10px;
+//       background-color: #fff;
+//       padding: 15px;
+//       @media only screen
+//       and (min-device-width: 320px)
+//       and (max-device-width: 568px)
+//       and (-webkit-min-device-pixel-ratio: 2) {
+//         padding: 10px;
+//       }
+//       @media only screen
+//       and (min-device-width: 375px)
+//       and (max-device-width: 667px)
+//       and (-webkit-min-device-pixel-ratio: 2) {
+//         padding: 15px;
+//       }
+//       @media only screen
+//       and (min-device-width: 410px)
+//       and (max-device-width: 730px)
+//       and (-webkit-min-device-pixel-ratio: 3) {
+//         padding: 15px;
+//       }
+//       &:before{
+//         content: " ";
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         width: 200%;
+//         height: 200%;
+//         border: 1px solid #d9d9d9;
+//         -webkit-transform-origin: 0 0;
+//         transform-origin: 0 0;
+//         -webkit-transform: scale(.5,.5);
+//         transform: scale(.5,.5);
+//       }
+//       &:first-child:before{
+//         display: block;
+//       }
+//       &:last-child{
+//         margin-right: 0;
+//       }
+//     }
+//   }
+//   .weui-cells_half{
+//     display: flex;
+//     margin: 10px;
+//     margin-top: 0;
+//     .weui-cell{
+//       width: 50%;
+//       margin: 0;
+//       margin-right: 10px;
+//       background-color: #fff;
+//       padding: 15px 0 15px 15px;
+//       @media only screen
+//       and (min-device-width: 320px)
+//       and (max-device-width: 568px)
+//       and (-webkit-min-device-pixel-ratio: 2) {
+//         padding: 10px 0 10px 10px;
+//       }
+//       @media only screen
+//       and (min-device-width: 375px)
+//       and (max-device-width: 667px)
+//       and (-webkit-min-device-pixel-ratio: 2) {
+//         padding: 15px 0 15px 15px;
+//       }
+//       @media only screen
+//       and (min-device-width: 410px)
+//       and (max-device-width: 730px)
+//       and (-webkit-min-device-pixel-ratio: 3) {
+//         padding: 15px 0 15px 15px;
+//       }
+//       &:before{
+//         content: " ";
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         width: 200%;
+//         height: 200%;
+//         border: 1px solid #d9d9d9;
+//         -webkit-transform-origin: 0 0;
+//         transform-origin: 0 0;
+//         -webkit-transform: scale(.5,.5);
+//         transform: scale(.5,.5);
+//       }
+//       &:first-child:before{
+//         display: block;
+//       }
+//       &:last-child{
+//         margin-right: 0;
+//       }
+//       .weui-cell__hd{
+//         margin-right: 0;
+//       }
+//     }
+//     .weui-cell_select{
+//       .weui-cell__hd{
+//         width: 20%;
+//       }
+//       .weui-cell__bd{
+//         margin-right: 10px;
+//       }
+//       .weui-input{
+//         text-align: center;
+//       }
+//     }
+//   }
+// }
+
+// .weui-msg__extra-area{
+//   position: fixed;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   text-align: center;
+//   z-index: 15;
+//   margin-bottom: 0;
+//   padding: 10px 0;
+//   background: rgba(0,102,153,0.8);
+// }
+// .weui-footer-btn{
+//   width: 181px;
+//   margin: 0 auto;
+//   .weui-btn{
+//     height: 38px;
+//     line-height: 38px;
+//     font-size: 15px;
+//     color: #FF8A00;
+//     border-color: #FF8A00;
+//     border-radius: 50px;
+//     &:after,&:visited,&:active{
+//       color: #FF8A00;
+//       border-color: #FF8A00;
+//       border-radius: 20px;
+//     }
+//   }
+//   .mxn-btn__next{
+//     margin: 0 auto;
+//     background: url("./images/next.png") no-repeat;
+//     background-size: 130px 44px;
+//     width: 130px;
+//     height: 44px;
+//   }
+//   .mxn-btn__finish{
+//     margin: 0 auto;
+//     background: url("./images/finish.png") no-repeat;
+//     background-size: 130px 44px;
+//     width: 130px;
+//     height: 44px;
+//   }
+// }
+
+// animation
+@keyframes slideIn {
+  from {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+.page.slideIn {
+  animation: slideIn .2s forwards;
+}
+
+.page.slideOut {
+  animation: slideOut .2s forwards;
+}
+
+//=============================
+// guidance settings: design=[750x1334]
+// adaption with Apple product as default
+// iphone 5: 320x568
+// iphone 6/7/8: 375x667
+// iphone 6/7/8 plus: 414x736
+// iphone X: 375x812
+// ipad mini/ipad: 768x1024
+// ipad pro: 1024x1336
+
+// input::-webkit-input-placeholder { color:#bbb !important; }
+// input::-moz-placeholder { color:#bbb !important; } /* firefox 19+ */
+// input:-moz-placeholder { color:#bbb; } /* firefox 19+ */
+// input:-ms-input-placeholder { color:#bbb !important; } /* ie */
+
+// .home::-webkit-input-placeholder { color:#137df1 !important; }
+// .home::-moz-placeholder { color:#137df1 !important; } /* firefox 19+ */
+// .home:-moz-placeholder { color:#137df1; } /* firefox 19+ */
+// .home:-ms-input-placeholder { color:#137df1 !important; } /* ie */
+
+//TODO picker
+//.weui-picker-modal {
+//  position: absolute;
+//  background-color: white;
+//  width: 100%;
+//  text-align: center;
+//  @media only screen
+//  and (min-device-width: 300px)
+//  and (max-device-width: 700px) {
+//    top: 30px;
+//    height: 170px;
+//  }
+//  @media only screen
+//  and (min-device-width: 700px)
+//  and (max-device-width: 1000px) {
+//    top: 30px;
+//    height: 340px;
+//  }
+//  @media only screen
+//  and (min-device-width: 1000px) {
+//    top: 270px;
+//    height: 340px;
+//  }
+//}
+//.weui-picker-overlay, .weui-picker-container {
+//  bottom: auto;
+//  width: auto;
+//  @media only screen
+//  and (min-device-width: 300px)
+//  and (max-device-width: 700px) {
+//    margin: 0 25px 0 25px;
+//  }
+//  @media only screen
+//  and (min-device-width: 700px)
+//  and (max-device-width: 1000px) {
+//    margin: 0 50px 0 50px;
+//  }
+//  @media only screen
+//  and (min-device-width: 1000px) {
+//    margin: 0 50px 0 50px;
+//  }
+//}
+.picker-columns .toolbar .picker-button {
+  color: #137df1;
+}
+// .picker-columns .toolbar .toolbar-inner .title {
+//   @media only screen
+//   and (min-device-width: 300px)
+//   and (max-device-width: 700px) {
+//     font-size: 14px;
+//   }
+//   @media only screen
+//   and (min-device-width: 700px)
+//   and (max-device-width: 1000px) {
+//     font-size: 28px;
+//   }
+//   @media only screen
+//   and (min-device-width: 1000px) {
+//     font-size: 32px;
+//   }
+// }
+// .picker-items-col {
+//   width: 100%;
+// }
+// .picker-items-col-wrapper {
+//   width: 100%;
+// }
+// .weui-picker-modal .picker-item {
+//   @media only screen
+//   and (min-device-width: 300px)
+//   and (max-device-width: 700px) {
+//     font-size: 16px;
+//     padding: 5px 0 5px 0;
+//     height: 30px;
+//   }
+//   @media only screen
+//   and (min-device-width: 700px)
+//   and (max-device-width: 1000px) {
+//     font-size: 32px;
+//     padding: 10px 0 10px 0;
+//     height: 60px;
+//   }
+//   @media only screen
+//   and (min-device-width: 1000px) {
+//     font-size: 36px;
+//     padding: 10px 0 10px 0;
+//     height: 60px;
+//   }
+// }
+
+// -- symptom_list ---
+.healthy_travel_title_frame {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    padding: 10px 20px;
+    height: 24px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    padding: 20px;
+    height: 44px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    padding: 20px;
+    height: 52px;
+  }
+}
+
+.healthy_travel_title {
+  width: 100%;
+  color: #fff;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    font-size: 16px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    font-size: 32px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    font-size: 32px;
+  }
+}
+
+.healthy_travel_address {
+  position: absolute;
+  color: #fff;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    top: 12px;
+    font-size: 14px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    top: 24px;
+    font-size: 28px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    top: 24px;
+    font-size: 28px;
+  }
+}
+
+.healthy_travel_address_content {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 6px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 12px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 12px;
+  }
+}
+
+.healthy_travel_weather_frame {
+  color: #fff;
+  border-bottom: 1px solid #ddd;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    padding: 10px 20px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    padding: 20px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    padding: 20px;
+  }
+}
+
+.healthy_travel_weather_row {
+  position: relative;
+  height: auto;
+}
+
+.healthy_travel_weather_row:before, .healthy_travel_weather_row:after {
+  content: '';
+  display: table;
+}
+
+.healthy_travel_weather_row:after {
+  clear: both;
+}
+
+
+.healthy_travel_weather_content {
+  float: left;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    font-size: 14px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    font-size: 28px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    font-size: 28px;
+  }
+}
+
+.healthy_travel_ml4 {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 4px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 8px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 8px;
+  }
+}
+
+.healthy_travel_ml6 {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 6px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 12px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 12px;
+  }
+}
+
+.healthy_travel_ml8 {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 8px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 16px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 16px;
+  }
+}
+
+.healthy_travel_weather_update {
+  float: right;
+  color: #fff;
+  opacity: 0.6;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    font-size: 24px;
+    line-height: 48px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    font-size: 24px;
+    line-height: 48px;
+  }
+}
+
+.healthy_travel_weather_img {
+  float: left;
+  i {
+    @media only screen
+    and (min-device-width: 300px)
+    and (max-device-width: 700px) {
+      font-size: 48px;
+      line-height: 48px;
+    }
+    @media only screen
+    and (min-device-width: 700px)
+    and (max-device-width: 1000px) {
+      font-size: 96px;
+      line-height: 48px;
+    }
+    @media only screen
+    and (min-device-width: 1000px) {
+      font-size: 96px;
+      line-height: 48px;
+    }
+  }
+}
+
+.healthy_travel_weather_cl {
+  float: left;
+  color: #fff;
+  div {
+    @media only screen
+    and (min-device-width: 300px)
+    and (max-device-width: 700px) {
+      font-size: 15px;
+    }
+    @media only screen
+    and (min-device-width: 700px)
+    and (max-device-width: 1000px) {
+      font-size: 30px;
+    }
+    @media only screen
+    and (min-device-width: 1000px) {
+      font-size: 30px;
+    }
+  }
+}
+
+.healthy_travel_weather_cr {
+  float: right;
+  color: #fff;
+  text-align: right;
+  width: 55%;
+  div {
+    @media only screen
+    and (min-device-width: 300px)
+    and (max-device-width: 700px) {
+      margin-top: 2px;
+      font-size: 13px;
+    }
+    @media only screen
+    and (min-device-width: 700px)
+    and (max-device-width: 1000px) {
+      margin-top: 4px;
+      font-size: 26px;
+    }
+    @media only screen
+    and (min-device-width: 1000px) {
+      margin-top: 4px;
+      font-size: 26px;
+    }
+  }
+}
+
+// .healthy_travel_label {
+//   float: left;
+//   width: 28%;
+//   text-align: right;
+// }
+
+// .healthy_travel_label:after {
+//   content: '：'
+// }
+
+// .healthy_travel_value {
+//   float: left;
+//   width: 22%;
+//   text-align: left;
+// }
+
+.healthy_travel_weather_col12 {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+.healthy_travel_notice_frame {
+  color: #fff;
+  border-bottom: 1px solid #ddd;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    padding: 10px 20px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    padding: 20px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    padding: 20px;
+  }
+}
+
+.healthy_travel_notice_img {
+  z-index: 9;
+  position: absolute;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    height: 155px;
+    left: 42px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    height: 300px;
+    left: 42px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    height: 300px;
+    left: 42px;
+  }
+}
+
+.healthy_travel_notice_row {
+  position: relative;
+  height: auto;
+}
+
+.healthy_travel_notice_row:before, .healthy_travel_notice_row:after {
+  content: '';
+  display: table;
+}
+
+.healthy_travel_notice_row:after {
+  clear: both;
+}
+
+.healthy_travel_mt28 {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-top: 28px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-top: 56px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-top: 56px;
+  }
+}
+
+.healthy_travel_mt12 {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-top: 12px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-top: 24px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-top: 24px;
+  }
+}
+
+.healthy_travel_fr {
+  float: right;
+}
+
+#healthy_travel_is_fever {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 6px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 12px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 12px;
+  }
+}
+
+
+.weui-switch {
+  background-color: initial;
+  border-color: #fff;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    width: 80px;
+    height: 40px;
+    outline: 0;
+    border-radius: 20px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    width: 80px;
+    height: 240px;
+    border-radius: 20px;
+  }
+}
+
+.weui-switch:checked {
+  border-color: #ffbb00;
+  background-color: #ffbb00;
+}
+
+.weui-switch:after, .weui-switch:before {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    top: 1px;
+    left: 1px;
+    height: 16px;
+    border-radius: 8px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    top: 2px;
+    left: 2px;
+    height: 32px;
+    border-radius: 16px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    top: 2px;
+    left: 2px;
+    height: 32px;
+    border-radius: 16px;
+  }
+}
+
+.weui-switch:before {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    width: 16px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    width: 32px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    width: 32px;
+  }
+}
+
+.weui-switch:after {
+  background-color: #fff;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    width: 16px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    width: 16px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    width: 16px;
+  }
+}
+
+.weui-switch:checked:after {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    -webkit-transform: translateX(40px);
+    transform: translateX(40px);
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    -webkit-transform: translateX(40px);
+    transform: translateX(40px);
+  }
+}
+
+.healthy_travel_label_fever {
+  font-size: 14px;
+  line-height: 20px;
+  float: left;
+}
+
+.healthy_travel_notice_container {
+  background: rgba(0,0,0,0.2);
+  box-shadow: 0 5px rgba(0,0,0, 0.4);
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-top: 8px;
+    height: 90px;
+    border-radius: 15px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-top: 16px;
+    height: 90px;
+    border-radius: 15px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-top: 16px;
+    height: 90px;
+    border-radius: 15px;
+  }
+}
+
+.healthy_travel_notice_rate_container {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-left: 136px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-left: 136px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-left: 136px;
+  }
+}
+
+.healthy_travel_notice_risk {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-top: 12px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-top: 24px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-top: 24px;
+  }
+}
+
+#healthy_travel_notice_stars {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    margin-top: 8px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    margin-top: 16px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    margin-top: 16px;
+  }
+}
+
+.healthy_travel_notice_content {
+  color: rgba(255,255,255,0.7);
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    font-size: 26px;
+    line-height: 37px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    font-size: 26px;
+    line-height: 37px;
+  }
+}
+
+.healthy_travel_pm_title_frame {
+  color: #fff;
+  border-bottom: 1px solid #ddd;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    padding: 20px;
+    font-size: 30px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    padding: 20px;
+    font-size: 30px;
+  }
+}
+
+.healthy_travel_pm_frame {
+  color: #fff;
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    padding: 10px 20px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    padding: 20px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    padding: 20px;
+  }
+}
+
+#healthy_travel_pm_line_chart {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    height: 180px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    height: 180px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    height: 180px;
+  }
+}
+
+.healthy_travel_provider_frame {
+  color: #fff;
+  background-color: rgba(0,0,0,0.2);
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    // height: 49px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    // height: 98px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    // height: 98px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.healthy_travel_provider {
+  text-align: center;
+  line-height: 100%;
+}
+
+.healthy_travel_provider_content {
+  @media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 700px) {
+    font-size: 9px;
+    line-height: 9px;
+  }
+  @media only screen
+  and (min-device-width: 700px)
+  and (max-device-width: 1000px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  @media only screen
+  and (min-device-width: 1000px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
